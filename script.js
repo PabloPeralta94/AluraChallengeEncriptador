@@ -1,20 +1,19 @@
 function encriptar() {
     var textoOriginal = document.getElementById('texto').value.toLowerCase();
     var resultado = '';
-
+  
     for (var i = 0; i < textoOriginal.length; i++) {
       var caracter = textoOriginal.charAt(i);
       if (caracter === ' ') {
-        resultado += ' ';
+        resultado += ' '; 
       } else {
-        resultado += encriptarCaracter(caracter);
+        resultado += encriptarCaracter(caracter) + ',';
       }
     }
-
+  
     document.getElementById('resultadoGato').textContent = resultado;
   }
-
-
+  
   function encriptarCaracter(caracter) {
     var sonidoGato = {
       'a': 'miau',
@@ -41,34 +40,39 @@ function encriptar() {
       'v': 'screech',
       'w': 'squeak',
       'x': 'squeal',
-      'y': 'yowl',
+      'y': 'yowls',
       'z': 'yowt'
     };
-
+  
     return sonidoGato[caracter] || caracter;
   }
   
-
- 
-
-
   function desencriptar() {
     var textoOriginal = document.getElementById('textogato').value.toLowerCase();
     var gatones = '';
-
-    for (var i = 0; i < textoOriginal.length; i++) {
-      var caracter = textoOriginal.charAt(i);
-      if (caracter === ' ') {
-        gatones += ' ';
-      } else {
-        gatones += desencriptarCaracter(caracter);
+  
+    var palabras = textoOriginal.split(' ');
+    for (var i = 0; i < palabras.length; i++) {
+      var palabra = palabras[i];
+      var caracteres = palabra.split(',');
+  
+      for (var j = 0; j < caracteres.length; j++) {
+        var caracter = caracteres[j].trim();
+        if (caracter === '') {
+          gatones += ' '; 
+        } else {
+          gatones += desencriptarCaracter(caracter);
+        }
+      }
+  
+      if (i < palabras.length - 1) {
+        gatones += ' '; 
       }
     }
-
+  
     document.getElementById('gatones').textContent = gatones;
   }
-
-
+  
   function desencriptarCaracter(caracter) {
     var sonidoPersona = {
       'miau': 'a',
@@ -95,9 +99,10 @@ function encriptar() {
       'screech': 'v',
       'squeak': 'w',
       'squeal': 'x',
-      'yowl': 'y',
+      'yowls': 'y',
       'yowt': 'z'
     };
-
+  
     return sonidoPersona[caracter] || caracter;
   }
+  
