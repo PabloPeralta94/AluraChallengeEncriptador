@@ -90,3 +90,12 @@ function desencriptar(textoCopiado) {
     }
     return textoCopiado; //Resultado
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    var backgroundMusic = document.getElementById('backgroundMusic');
+    
+    document.addEventListener('click', function() {
+        // Reproducir la música cuando el usuario hace clic
+        backgroundMusic.play();
+    });
+});

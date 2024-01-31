@@ -1,4 +1,4 @@
-function encriptar() {
+function encriptar() {    
     var textoOriginal = document.getElementById('texto').value.toLowerCase();
     var resultado = '';
   
@@ -11,7 +11,7 @@ function encriptar() {
       }
     }
   
-    document.getElementById('resultadoGato').textContent = resultado;
+    document.getElementById('resultadoGato').innerHTML = resultado;
   }
   
   function encriptarCaracter(caracter) {
@@ -44,10 +44,12 @@ function encriptar() {
       'z': 'yowt'
     };
   
+    playSpell();
+    animateMago(['mago2.png', 'mago3.png', 'mago4.png','mago3.png','mago2.png', 'mago1.png']);
     return sonidoGato[caracter] || caracter;
   }
   
-  function desencriptar() {
+  function desencriptar() {  
     var textoOriginal = document.getElementById('textogato').value.toLowerCase();
     var gatones = '';
   
@@ -70,7 +72,7 @@ function encriptar() {
       }
     }
   
-    document.getElementById('gatones').textContent = gatones;
+    document.getElementById('gatones').innerHTML = gatones;
   }
   
   function desencriptarCaracter(caracter) {
@@ -103,6 +105,59 @@ function encriptar() {
       'yowt': 'z'
     };
   
+    playSpell();
+    animateMago(['mago2.png', 'mago3.png', 'mago4.png','mago3.png','mago2.png', 'mago1.png']);
     return sonidoPersona[caracter] || caracter;
   }
   
+  document.addEventListener('DOMContentLoaded', function () {
+    var backgroundMusic = document.getElementById('backgroundMusic');
+    backgroundMusic.volume = 0.1;
+    
+    document.addEventListener('click', function() {  
+        backgroundMusic.play();
+    });
+});
+
+
+var spell = new Audio('marimba-bloop.mp3');
+
+function playSpell() {
+  spell.currentTime = 0; 
+  spell.play();
+}
+
+
+
+// gato imagen
+
+function animateMago(imageArray) {
+  var magoImg = document.querySelector('.gatomago img');
+  var currentIndex = 0;
+
+  function changeImage() {
+      magoImg.src = imageArray[currentIndex];
+
+      currentIndex++;
+
+      if (currentIndex >= imageArray.length) {
+          currentIndex = 0;
+      }
+  }
+
+
+  magoImg.classList.add('animate-mago');
+
+
+  imageArray.forEach(function (image, index) {
+      setTimeout(function () {
+          changeImage();
+      }, index * 150); 
+  });
+
+
+  magoImg.addEventListener('animationend', function () {
+      this.classList.remove('animate-mago'); 
+      this.src = 'mago1.png'; 
+  });
+}
