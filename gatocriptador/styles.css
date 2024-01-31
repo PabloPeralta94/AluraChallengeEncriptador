@@ -54,6 +54,16 @@ h1 {
    
 }
 
+button {
+  background-color: rgb(163, 65, 114);
+  width: 120px;
+  height: fit-content;
+  font-size: 20px;
+}
+label {
+  font-size: 20px;
+}
+
 
 @keyframes mageAnimation {
     0% {
