@@ -128,6 +128,16 @@ function playSpell() {
 }
 
 
+function reset() {
+
+  document.getElementById('gatones').innerHTML = "";
+  document.getElementById('resultadoGato').innerHTML = "";
+
+
+  
+
+}
+
 
 // gato imagen
 
