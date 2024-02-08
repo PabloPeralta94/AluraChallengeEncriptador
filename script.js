@@ -1,101 +1,75 @@
-var inputText = document.querySelector(".input-text");
-var outputText = document.querySelector(".output-text");
-var instruccion = document.querySelector(".instruccion");
-var mensaje = document.querySelector(".mensaje");
+let tituloMensaje = document.getElementById("titulo-mensaje");
+let parrafo = document.getElementById("parrafo");
+let muñeco = document.getElementById("muñeco");
+let textoInput = document.getElementById("texto");
 
-//Validar acentos, números y mayúsculas
-function validacion(e) {
-    var key = e.keyCode || e.which;
-    var tecla = String.fromCharCode(key).toString();
-    var letrasPermitidas = " abcdefghijklmnñopqrstuvwxyz";
-    var teclaEnter = 13;
-    var teclaEspecial = false;
-
-    if(key == teclaEnter) {
-        teclaEspecial = true;
-    }
-     
-    if(letrasPermitidas.indexOf(tecla) == -1 && !teclaEspecial) {
-        alert ("Ingresa solo letras minúsculas. No se aceptan acentos, caracteres especiales y números");
-        return false;
-    }
+function validarTexto(texto) {
+    var regex = /^[a-z\s]+$/;
+    return regex.test(texto);
 }
 
-//Encriptación
-function resultadoEncriptar() {
-    var textoEncriptado = encriptar(inputText.value);
-
-    if(inputText.value.length == 0) {
-        instruccion.style.display = "inline-flex"; //Muestra la instrucción 
-        mensaje.style.display = "none"; //Oculta el resultado
-        inputText.focus();
-    } else {
-        outputText.value = textoEncriptado; //Muestra el resultado del texto ya encriptado
-        inputText.value = ""; //Vaciar textarea del bloque izquierdo
-        instruccion.style.display = "none"; //Oculta la instrucción 
-        mensaje.style.display = "inline-flex"; //Muestra el resultado
-        outputText.focus();
-    }
+function actualizarInterfaz(mensaje, imagenSrc) {
+    tituloMensaje.textContent = mensaje.titulo;
+    parrafo.textContent = mensaje.parrafo;
+    muñeco.src = imagenSrc;
 }
 
-function encriptar(textoCapturado) {
-    let llavesEncriptacion = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"]];
+function cifrarDecifrarTexto(operacion) {
+    let texto = textoInput.value;
 
-    textoCapturado = textoCapturado.toLowerCase(); //Convierte el resultado todo en minúsculas
-
-    //Encriptación
-    for(i = 0; i < llavesEncriptacion.length; i++) {
-        if(textoCapturado.includes(llavesEncriptacion[i][0])) {
-            textoCapturado = textoCapturado.replaceAll(llavesEncriptacion[i][0], llavesEncriptacion[i][1]);
-        }
+    if (texto.length === 0) {
+        swal("Ooops!", "Debes ingresar un texto", "warning");
+        return;
     }
-    
-    return textoCapturado; //Resultado
-}
-
-//Copiar texto del textarea izquierdo
-function copiar() {
-    outputText.select(); 
-    outputText.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(outputText.value);
-}
-
-//Desencriptación
-function resultadoDesencriptar() {
-    var textoDesencriptado = desencriptar(inputText.value);
-
-    if(inputText.value.length == 0) {
-        instruccion.style.display = "inline-flex"; //Muestra la instrucción 
-        mensaje.style.display = "none"; //Oculta el resultado
-        inputText.focus();
-    } else {
-        outputText.value = textoDesencriptado; //Muestra el resultado del texto ya desencriptado
-        inputText.value = ""; //Vaciar textarea del bloque izquierdo 
-        instruccion.style.display = "none"; //Oculta la instrucción
-        mensaje.style.display = "inline-flex"; //Muestra el resultado
-        outputText.focus();
+    if (!validarTexto(texto)) {
+        swal("Ooops!", "El texto solo debe contener letras minúsculas y sin acentos", "warning");
+        return;
     }
-} 
 
-function desencriptar(textoCopiado) {
-    let llavesEncriptacion = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"]];
-    
-    textoCopiado = textoCopiado.toLowerCase(); //Convierte el resultado todo en minúsculas
+    let textoTransformado = texto;
+    const reglasCifrado = [
+        { de: /e/gi, a: "enter" },
+        { de: /i/gi, a: "imes" },
+        { de: /a/gi, a: "ai" },
+        { de: /o/gi, a: "ober" },
+        { de: /u/gi, a: "ufat" }
+    ];
 
-    //Desencriptación
-    for(i=0; i < llavesEncriptacion.length; i++) {
-        if(textoCopiado.includes(llavesEncriptacion[i][1])) {
-            textoCopiado = textoCopiado.replaceAll(llavesEncriptacion[i][1], llavesEncriptacion[i][0]);
-        }
-    }
-    return textoCopiado; //Resultado
-}
+    const reglasDescifrado = [
+        { de: /enter/gi, a: "e" },
+        { de: /imes/gi, a: "i" },
+        { de: /ai/gi, a: "a" },
+        { de: /ober/gi, a: "o" },
+        { de: /ufat/gi, a: "u" }
+    ];
 
-document.addEventListener('DOMContentLoaded', function () {
-    var backgroundMusic = document.getElementById('backgroundMusic');
-    
-    document.addEventListener('click', function() {
-        // Reproducir la música cuando el usuario hace clic
-        backgroundMusic.play();
+    const reglas = operacion === 'cifrado' ? reglasCifrado : reglasDescifrado;
+
+    reglas.forEach(regla => {
+        textoTransformado = textoTransformado.replace(regla.de, regla.a);
     });
+
+    textoInput.value = textoTransformado;
+
+    const mensaje = {
+        cifrado: { titulo: "Texto encriptado con éxito", parrafo: "" },
+        decifrado: { titulo: "Texto desencriptado con éxito", parrafo: "" }
+    };
+
+    const imagenSrc = operacion === 'cifrado' ? "imagenes/Muñeco.png" : "imagenes/desencriptado.jpg";
+
+    actualizarInterfaz(mensaje[operacion], imagenSrc);
+}
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('boton-copiar').addEventListener('click', function() {
+        textoInput.select();
+        document.execCommand('copy');
+        swal("Hecho!", "El texto ha sido copiado al portapapeles", "success");
+    });
+
+    document.getElementById('boton-encriptar').addEventListener('click', () => cifrarDecifrarTexto('cifrado'));
+    document.getElementById('boton-desencriptar').addEventListener('click', () => cifrarDecifrarTexto('decifrado'));
 });

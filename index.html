@@ -3,41 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Incluye el CDN de Tailwind CSS (versión de desarrollo) -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
-    
-    <title>Encriptador/Desencriptador</title>
+    <title>Encriptador y Desencriptador</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gradient-to-br from-indigo-500 to-purple-600 font-sans">
-    <audio id="backgroundMusic" loop>
-        <source src="Background músic.mp3" type="audio/mp3">
-        Tu navegador no soporta la etiqueta de audio.
-    </audio>
-
-    <div class="container mx-auto max-w-md bg-white p-8 rounded shadow-md mt-16 animate__animated animate__fadeInUp animate__delay-2s">
-
-        <label for="inputText" class="block text-sm font-medium text-gray-700 mb-2">Texto:</label>
-        <textarea id="inputText" class="input-text w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300" onkeypress="return validacion(event)"></textarea>
-
-        <div class="flex justify-between items-center mt-4">
-            <button onclick="resultadoEncriptar()" class="btn-encriptar bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800 transition duration-300 ease-in-out transform hover:scale-105">Encriptar</button>
-            <button onclick="copiar()" class="btn-copiar bg-gray-500 hover:bg-gray-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline-gray active:bg-gray-800 transition duration-300 ease-in-out transform hover:scale-105">Copiar</button>
-            <button onclick="resultadoDesencriptar()" class="btn-desencriptar bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline-green active:bg-green-800 transition duration-300 ease-in-out transform hover:scale-105">Desencriptar</button>
+<body>
+    <div class="container">
+        <h1 id="titulo-mensaje">Encriptador y Desencriptador</h1>
+        <p id="parrafo">Ingresa el texto que deseas encriptar o desencriptar</p>
+        <img id="muñeco" src="imagenes/Muñeco.png" alt="Muñeco">
+        <textarea id="texto" placeholder="Ingresa tu texto aquí"></textarea>
+        <div class="buttons">
+            <button id="boton-encriptar">Encriptar</button>
+            <button id="boton-desencriptar">Desencriptar</button>
+            <button id="boton-copiar">Copiar</button>
         </div>
-
-    <label for="outputText" class="block text-sm font-medium text-gray-700 mt-4">Resultado:</label>
-    <textarea id="outputText" class="output-text w-full p-2 border rounded mt-1 animate__animated animate__fadeInLeft" readonly></textarea>
-
-    <div class="instruccion hidden mt-4 p-2 bg-red-100 border border-red-400 text-red-700 rounded animate__animated animate__fadeIn animate__delay-3s">
-        Ingresa solo letras minúsculas. No se aceptan acentos, caracteres especiales y números
+        <p id="resultado-cifrado"></p>
+        <p id="resultado-desencriptado"></p>
     </div>
-
-    <div class="mensaje hidden animate__animated animate__fadeIn animate__delay-3s"></div>
-</div>
-
-<script src="script.js"></script>
-
+    
+    
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>
