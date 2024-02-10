@@ -1,34 +1,90 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    background-image: url('gatoFondo.png');
+    background-size: 100% 100%; /* width height */
+    background-repeat: no-repeat;  
+    
+}
+
+
+.container { 
+    width: 100%; 
+    height: 100vh;    
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+    gap: 1px;
 }
 
-.container {
-    text-align: center;
+
+.encriptador {
+    background-image: url('pergatumino.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    padding: 5px;    
+    max-width: 400px;   
 }
 
-textarea {
-    width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
+
+h1 {
+    font-family: 'Honk', system-ui;    
+    }
+
+#resultadoGato, #gatones {
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;  
+    word-wrap: break-word;
+    max-width: 400px;
+    max-height: 150px;
+    overflow-y: scroll;
+    background-color: rgb(208, 124, 211);
+    margin: 2px;
+    padding: 5px;
+    margin-bottom: 25px;
 }
 
-.buttons button {
-    margin: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+.gatomago {
+    margin: 0px;
+    padding: 0px;
+   
 }
 
-#muñeco {
-    display: block;
-    margin: 20px auto;
-    width: 150px;
-    height: 150px;
+button {
+  background-color: rgb(163, 65, 114);
+  width: 120px;
+  height: fit-content;
+  font-size: 20px;
 }
+label {
+  font-size: 20px;
+}
+
+
+@keyframes mageAnimation {
+    0% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+    50% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .gatomago img {
+    animation: mageAnimation 2s ease-in-out;
+  }
