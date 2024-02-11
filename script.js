@@ -1,18 +1,34 @@
-function encriptar() {    
-    var textoOriginal = document.getElementById('texto').value.toLowerCase();
-    var resultado = '';
-  
-    for (var i = 0; i < textoOriginal.length; i++) {
-      var caracter = textoOriginal.charAt(i);
-      if (caracter === ' ') {
-        resultado += ' '; 
-      } else {
-        resultado += encriptarCaracter(caracter) + ',';
+function encriptar() {
+  var textoOriginal = document.getElementById('texto').value.toLowerCase();
+  var resultado = '';
+  var palabraActual = '';
+  var blockSize = 500;
+  var waitTime = 10; 
+  function procesarBloque(i) {
+      for (; i < textoOriginal.length && i < blockSize; i++) {
+          var caracter = textoOriginal.charAt(i);
+          if (caracter === ' ') {
+              resultado += palabraActual + '  ';
+              palabraActual = '';
+          } else {
+              resultado += encriptarCaracter(caracter);
+              resultado += ' ';
+          }
       }
-    }
-  
-    document.getElementById('resultadoGato').innerHTML = resultado;
+      if (i < textoOriginal.length) {
+          setTimeout(function() {
+              procesarBloque(i);
+          }, waitTime);
+      } else {
+          resultado += palabraActual;
+          document.getElementById('resultadoGato').innerText = resultado;
+      }
   }
+
+  procesarBloque(0);
+}
+
+
   
   function encriptarCaracter(caracter) {
     var sonidoGato = {
@@ -52,29 +68,31 @@ function encriptar() {
   function desencriptar() {  
     var textoOriginal = document.getElementById('textogato').value.toLowerCase();
     var gatones = '';
-  
-    var palabras = textoOriginal.split(' ');
+
+    var palabras = textoOriginal.split('  '); 
     for (var i = 0; i < palabras.length; i++) {
-      var palabra = palabras[i];
-      var caracteres = palabra.split(',');
-  
-      for (var j = 0; j < caracteres.length; j++) {
-        var caracter = caracteres[j].trim();
-        if (caracter === '') {
-          gatones += ' '; 
-        } else {
-          gatones += desencriptarCaracter(caracter);
+        var palabra = palabras[i];
+        gatones += desencriptarPalabra(palabra);
+        if (i !== palabras.length - 1) { 
+            gatones += '  '; 
         }
-      }
-  
-      if (i < palabras.length - 1) {
-        gatones += ' '; 
-      }
     }
-  
-    document.getElementById('gatones').innerHTML = gatones;
-  }
-  
+
+    document.getElementById('gatones').innerText = gatones;
+}
+
+function desencriptarPalabra(palabra) {
+    var caracteres = palabra.split(' '); 
+    var resultado = '';
+
+    for (var j = 0; j < caracteres.length; j++) {
+        var caracter = caracteres[j].trim();
+        resultado += desencriptarCaracter(caracter);
+    }
+
+    return resultado;
+}
+
   function desencriptarCaracter(caracter) {
     var sonidoPersona = {
       'miau': 'a',
@@ -118,7 +136,6 @@ function encriptar() {
         backgroundMusic.play();
     });
 });
-
 
 var spell = new Audio('marimba-bloop.mp3');
 

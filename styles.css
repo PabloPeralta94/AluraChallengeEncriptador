@@ -32,7 +32,8 @@ body {
     align-items: center;
     gap: 1px;
     padding: 5px;    
-    max-width: 400px;   
+    max-width: 400px; 
+    z-index: 3;  
 }
 
 
@@ -69,6 +70,74 @@ label {
   font-size: 20px;
 }
 
+.orbita {
+  display: flex;  
+  border-radius: 50%; 
+  position: absolute;  
+  align-items: baseline;
+  justify-content: space-around;
+  
+}
+
+.primera {
+  width: 500px;
+  height: 500px;
+  animation: orbit 4s linear infinite;  
+}
+
+.segunda {
+  width: 300px;
+  height: 300px;
+  animation: orbit 6s linear infinite;
+}
+
+.tercera {
+  width: 600px;
+  height: 600px;
+  animation: orbit 7s linear infinite;
+}
+
+.cuarta {
+  width: 700px;
+  height: 700px;
+  animation: orbit 4.5s linear infinite; 
+}
+
+.quinta {
+  width: 800px;
+  height: 800px;
+  animation: orbit 6.5s linear infinite; 
+}
+.sexta {
+  width: 900px;
+  height: 900px;
+  animation: orbit 7.5s linear infinite; 
+}
+
+.estrella{
+  width: 20%;
+  height: 25%; 
+  background-size: contain;
+  animation: change-image 0.5s infinite;  
+}
+
+
+
+@keyframes change-image {
+  0%, 25% { background-image: url('estrella1.png'); }
+  25.1%, 50% { background-image: url('estrella2.png'); } 
+  50.1%, 75% { background-image: url('estrella1.png'); } 
+  75.1%, 100% { background-image: url('estrella3.png'); } 
+}
+
+@keyframes orbit {
+  from {
+      transform: rotate(0);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
 
 @keyframes mageAnimation {
     0% {
