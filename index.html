@@ -13,13 +13,17 @@
         <source src="spaceCat.mp3" type="audio/mp3">
         Tu navegador no soporta la etiqueta de audio.
     </audio>
-    <div class="container">           
+    <div class="container">
+        <button onclick="reset()">Resetear</button> 
+        <button onclick="limpiar()">Limpiar</button>             
         <div class="encriptador">
         <h1>ENCRIPTADOR GATUNO</h1>
         <label for="texto">Ingresa texto para encriptar:</label>
         <input type="text" id="texto" placeholder="Escribe tu mensaje...">
         <button onclick="encriptar()">Traducir</button>
         <p id="resultadoGato"></p>
+        <button onclick="copiarTexto()">Copiar</button>
+        <button onclick="pegarTexto()" id="btn-paste" style="visibility: hidden;">Pegar</button>
         <label for="textoGato">Ingresa texto encriptado:</label>
         <input type="text" id="textogato" placeholder="Escribe tu mensaje...">
         <button onclick="desencriptar()">Traducir de Gato</button> 
@@ -28,10 +32,6 @@
     <div class="gatomago">
         <img src="mago1.png" alt="">
     </div>
-    </div>
-    <button onclick="reset()">Resetear</button>   
-    
-
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 </body>
 </html>

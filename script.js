@@ -171,3 +171,59 @@ function animateMago(imageArray) {
       this.src = 'mago1.png'; 
   });
 }
+
+
+
+
+const output = document.getElementById('resultadoGato');
+
+
+function getValueInputBy(id) {
+    return document.getElementById(id).value;
+}
+
+
+function regresarCursorInicio() {   
+    input.selectionStart = 0;
+    input.focus(); 
+}
+
+
+var historyCopy = '';
+
+function copiarTexto(){
+  renderPasteButton('visible'); 
+  const textoTemporal = document.createElement('textarea'); 
+  textoTemporal.textContent = document.getElementById('resultadoGato').textContent; 
+  historyCopy = textoTemporal.textContent; 
+  document.body.appendChild(textoTemporal); 
+  textoTemporal.select(); 
+  document.execCommand('copy'); 
+  document.body.removeChild(textoTemporal); 
+}
+
+function pegarTexto(){
+  let input = document.getElementById('textogato'); 
+  input.focus(); 
+  if(historyCopy) { 
+      input.value = historyCopy; 
+  }
+  renderPasteButton('hidden'); 
+}
+
+function limpiar(){
+    document.getElementById('texto').value = '';
+    document.getElementById('textogato').value = '';   
+}
+
+function renderPasteButton(option) {
+    var x = document.getElementById('btn-paste');
+    if (option === 'hidden') { 
+      x.style.visibility = 'hidden'; 
+    } else { 
+        x.style.visibility = 'visible'; 
+    }
+}
+
+
+

@@ -16,6 +16,11 @@ body {
     gap: 1px;
 }
 
+.rectangulo {
+  background-color: white;
+  width: 250px;
+  height: 400px;
+}
 
 .encriptador {
     background-image: url('pergatumino.png');
