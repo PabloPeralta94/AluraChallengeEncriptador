@@ -55,18 +55,23 @@ h1 {
     margin-bottom: 25px;
 }
 
-.gatomago {
-    margin: 0px;
+.gatomago { 
+    margin: 0px;   
     padding: 0px;
+    z-index: 4;
    
 }
 
-button {
-  background-color: rgb(163, 65, 114);
+button {   
+  background: none;
+  background-image: url(patita.png);  
+  background-size: cover;
   width: 120px;
   height: fit-content;
   font-size: 20px;
+  border: none;
 }
+
 label {
   font-size: 20px;
 }

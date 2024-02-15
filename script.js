@@ -151,6 +151,10 @@ function reset() {
   document.getElementById('resultadoGato').innerHTML = "";
 
 
+  animateMago(['remover1.png', 'remover2.png', 'remover3.png','remover2.png', 'remover1.png', 'mago1.png']);
+  playSpell();
+
+
   
 
 }
