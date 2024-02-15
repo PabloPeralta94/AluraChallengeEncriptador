@@ -127,6 +127,20 @@ label {
   animation: change-image 0.5s infinite;  
 }
 
+.fondo {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
+}
+
+.gatoFondo {
+  width: 25%;
+  height: 25%;
+  opacity: 0.2;
+}
+
 
 
 @keyframes change-image {
