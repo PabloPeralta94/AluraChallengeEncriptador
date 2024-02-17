@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <title>Lenguaje gatuno</title>
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="spaceCat.mp3" type="audio/mp3">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+    <div class="fondo">
+        <img class="gatoFondo" src="cat-kitty.gif" alt="">        
+        <img class="gatoFondo" src="plink-cat-plink.gif" alt="">
+        <img class="gatoFondo" src="plink-wide.gif" alt="">
+        <img class="gatoFondo" src="catthew-magic.gif" alt="">
+        <img class="gatoFondo" src="pickle-magic.gif" alt="">
+        <img src="catthew-magic.gif" alt="" class="gatoFondo">
+        <img src="cat gif 7.gif" alt="" class="gatoFondo">
+        <img src="pickle-magic.gif" alt="" class="gatoFondo">       
+    </div>
+    <div class="container">                     
+        <div class="encriptador">
+        <h1>ENCRIPTADOR GATUNO</h1>
+        <label for="texto">Ingresa texto para encriptar:</label>
+        <input type="text" id="texto" placeholder="Escribe tu mensaje...">
+        <button onclick="encriptar()">Encriptar</button>
+        <p id="resultadoGato"></p>
+        <button onclick="copiarTexto()">Copiar</button>
+        <button onclick="pegarTexto()" id="btn-paste" style="visibility: hidden;">Pegar</button>
+        <label for="textoGato">Ingresa texto encriptado:</label>
+        <input type="text" id="textogato" placeholder="Escribe tu mensaje...">
+        <button onclick="desencriptar()">Desencriptar</button> 
+        <p id="gatones"></p>
+        <button onclick="reset()">Resetear</button> 
+        <button onclick="limpiar()">Limpiar</button>
+        </div>
+    <div class="gatomago">
+        <img src="mago1.png" alt="">
+    </div>
+    <div class="primera orbita">
+        <div class="estrella"></div>
+        <div class="estrella"></div>                     
+    </div>
+    <br>
+    <div class="segunda orbita">
+        <div class="quinta orbita">
+            <div class="estrella"></div>                               
+        </div>
+        <div class="estrella"></div>
+        <div class="estrella"></div>                      
+    </div>
+    <br>
+    <div class="tercera orbita">
+        <div class="estrella"></div>
+        <div class="estrella"></div>                
+    </div>
+    <br>
+    <div class="cuarta orbita">
+        <div class="primera orbita">
+            <div class="estrella"></div>
+            <div class="estrella"></div>                     
+        </div>
+        <div class="estrella"></div>
+        <div class="estrella"></div>                    
+    </div>
+    <br>
+    <div class="quinta orbita">
+        <div class="estrella"></div>
+        <div class="estrella"></div>                    
+    </div>
+    <br>
+    <div class="sexta orbita">
+        <div class="estrella"></div>
+        <div class="estrella"></div>
+        <div class="primera orbita">
+            <div class="estrella"></div>
+            <div class="estrella"></div>                     
+        </div>                    
+    </div>
+</div>
+        <script src="script.js"></script>
+</body>
+</html>
