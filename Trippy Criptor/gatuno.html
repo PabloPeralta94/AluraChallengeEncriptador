@@ -3,12 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Alura/css/reset.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../menu.css">
     <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <title>Lenguaje gatuno</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul class='nav-bar'>
+                <li class='nav-logo'><a href='#'><img class="nav-img" src='../Alura/img/icon.png'/></a></li>
+                <input type='checkbox' id='check' />
+                <span class="nav-menu">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Version Alura</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../Delicado/index.html">Version Delicada</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Trippy Criptor/gatuno.html">Version Gatuna</a></li>                  
+                    <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+                </span>
+                <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+            </ul>
+        </nav>
+    </header> 
     <audio id="backgroundMusic" loop>
         <source src="spaceCat.mp3" type="audio/mp3">
         Tu navegador no soporta la etiqueta de audio.
@@ -23,21 +40,23 @@
         <img src="cat gif 7.gif" alt="" class="gatoFondo">
         <img src="pickle-magic.gif" alt="" class="gatoFondo">       
     </div>
-    <div class="container">                     
-        <div class="encriptador">
-        <h1>ENCRIPTADOR GATUNO</h1>
-        <label for="texto">Ingresa texto para encriptar:</label>
-        <input type="text" id="texto" placeholder="Escribe tu mensaje...">
-        <button onclick="encriptar()">Encriptar</button>
-        <p id="resultadoGato"></p>
-        <button onclick="copiarTexto()">Copiar</button>
-        <button onclick="pegarTexto()" id="btn-paste" style="visibility: hidden;">Pegar</button>
-        <label for="textoGato">Ingresa texto encriptado:</label>
-        <input type="text" id="textogato" placeholder="Escribe tu mensaje...">
-        <button onclick="desencriptar()">Desencriptar</button> 
+    <div class="container">   
+        <div class="main">
+            <h1>ENCRIPTADOR GATUNO</h1>
+            <label for="texto">Ingresa texto para encriptar:</label>
+            <input type="text" id="texto" placeholder="Escribe tu mensaje...">
+            <button onclick="encriptar()">Encriptar</button>            
+            <button onclick="pegarTexto()" id="btn-paste" style="visibility: hidden;">Pegar</button>
+            <button onclick="desencriptar()">Desencriptar</button>
+            <label for="textoGato">Ingresa texto encriptado:</label>
+            <input type="text" id="textogato" placeholder="Escribe tu mensaje...">
+            <button onclick="reset()">Resetear</button> 
+            <button onclick="limpiar()">Limpiar</button>  
+        </div>                  
+        <div class="encriptador">        
+        <p id="resultadoGato"></p>               
         <p id="gatones"></p>
-        <button onclick="reset()">Resetear</button> 
-        <button onclick="limpiar()">Limpiar</button>
+        <button onclick="copiarTexto()">Copiar</button>        
         </div>
     <div class="gatomago">
         <img src="mago1.png" alt="">
@@ -82,7 +101,15 @@
             <div class="estrella"></div>                     
         </div>                    
     </div>
+
 </div>
+<footer>
+    <p>Creado por <span class="bold">Pablo Andres Peralta</span></p>
+    <div class="flex icons">           
+        <a target="_blank" rel="noopener" href="https://github.com/PabloPeralta94?tab=repositories"><i
+                class="fa-brands fa-github"></i></a>          
+    </div>
+</footer>
         <script src="script.js"></script>
 </body>
 </html>
