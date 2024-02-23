@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer">    
-    <link rel="stylesheet" href="Alura/css/reset.css">
-    <link rel="stylesheet" href="Alura/css/style.css">
-    <link rel="stylesheet" href="menu.css">    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../menu.css">    
     <link rel="icon" href="Alura/img/icon.png">   
     <meta property="og:title" content="Pablo Peralta | Encriptador">
     <meta property="og:description" content="Challenge encriptador | Oracle Next Education">
@@ -26,12 +26,12 @@
     <header>
         <nav>
             <ul class='nav-bar'>
-                <li class='nav-logo'><a href='#'><img class="nav-img" src='Alura/img/icon.png'/></a></li>
+                <li class='nav-logo'><a href='#'><img class="nav-img" src='img/icon.png'/></a></li>
                 <input type='checkbox' id='check' />
                 <span class="nav-menu">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Version Alura</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Delicado/index.html">Version Delicada</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Gatos/index.html">Version Gatuna</a></li>                  
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Version Alura</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../Delicado/index.html">Version Delicada</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Version Gatuna</a></li>                 
                     <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
                 </span>
                 <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
@@ -41,7 +41,7 @@
     <main class="grid">
         <div class="flex user padding-user">
             <div>
-                <img class="logo" src="Alura/img/alura.png" alt="Alura">
+                <img class="logo" src="img/alura.png" alt="Alura">
                 <textarea class="user-text" name="" id="" placeholder="Ingrese el texto aquí"></textarea>
             </div>
             <div>
@@ -52,8 +52,8 @@
                 </div>
             </div>
         </div>
-        <div class="flex translation not-found padding-result">
-            <img src="Alura/img/standby-lonche.png" alt="Not Found">
+        <div class="pergamino flex translation not-found padding-result">
+            <img src="img/standby-lonche.png" alt="Not Found">
             <p class="bold empty">Ningún mensaje fue encontrado</p>
             <p class="empty-legend">Ingresa el texto que deseas encriptar o desencriptar.</p>
         </div>
@@ -61,6 +61,47 @@
             <textarea class="inputCopy" name="" id="" placeholder="Resultado" disabled></textarea>
             <button type="button" onclick="copy()" class="button-grey">Copiar</button>
         </div> 
+
+        <div class="primera orbita">
+            <div class="estrella"></div>
+            <div class="estrella"></div>                     
+        </div>
+        <br>
+        <div class="segunda orbita">
+            <div class="quinta orbita">
+                <div class="estrella"></div>                               
+            </div>
+            <div class="estrella"></div>
+            <div class="estrella"></div>                      
+        </div>
+        <br>
+        <div class="tercera orbita">
+            <div class="estrella"></div>
+            <div class="estrella"></div>                
+        </div>
+        <br>
+        <div class="cuarta orbita">
+            <div class="primera orbita">
+                <div class="estrella"></div>
+                <div class="estrella"></div>                     
+            </div>
+            <div class="estrella"></div>
+            <div class="estrella"></div>                    
+        </div>
+        <br>
+        <div class="quinta orbita">
+            <div class="estrella"></div>
+            <div class="estrella"></div>                    
+        </div>
+        <br>
+        <div class="sexta orbita">
+            <div class="estrella"></div>
+            <div class="estrella"></div>
+            <div class="primera orbita">
+                <div class="estrella"></div>
+                <div class="estrella"></div>                     
+            </div>                    
+        </div>
     </main>
     <footer>
         <p>Creado por <span class="bold">Pablo Andres Peralta</span></p>
@@ -70,7 +111,7 @@
         </div>
     </footer>
 
-    <script src="Alura/js/app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
