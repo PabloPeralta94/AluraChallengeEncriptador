@@ -13,9 +13,9 @@ html {
 }
 
 body {
-  background-image: url('../img/gatoFondo.png');  
+  background-image: url('../img/gatoFondo.png');
   background-repeat: no-repeat;
-  background-size: cover;  
+  background-size: cover;
 }
 
 .bold {
@@ -32,7 +32,35 @@ body {
   overflow: hidden;
   position: relative;
   z-index: 3;
-  
+
+}
+.fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  opacity: 0.3;
+}
+
+.fondo-img {
+  margin-top: 5%;
+  width: 25%;
+  height: 25%;
+}
+
+.animacion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 
 .exclamation {
@@ -72,7 +100,7 @@ main {
   margin: 0 auto;
   padding: 3rem 0;
   grid-template-rows: 2fr 1fr;
-  gap: 3rem;  
+  gap: 3rem;
 }
 
 .user {
@@ -144,14 +172,17 @@ button {
     grid-template-rows: none;
     grid-template-columns: 2fr 1fr;
   }
+
   .logo {
     width: 3.5rem;
   }
+
   textarea {
     font-size: 2.5rem;
     margin: 3rem auto;
     height: 80%;
   }
+
   button {
     font-size: 2rem;
   }
@@ -204,6 +235,7 @@ footer {
   font-size: 1.75rem;
   height: 10vh;
   text-align: center;
+  background-color: #330735;
 }
 
 .icons {
@@ -265,7 +297,7 @@ footer {
   display: none;
 }
 
-#menu-toggle:checked + .menu {
+#menu-toggle:checked+.menu {
   display: block;
 }
 
@@ -289,74 +321,92 @@ footer {
 /* orbitas */
 
 .orbita {
-  display: flex;  
-  border-radius: 50%; 
+  display: flex;
+  border-radius: 50%;
   position: absolute;
   top: 0;
-  left: 0;  
+  left: 0;
   align-items: baseline;
   justify-content: space-around;
   z-index: -1;
-      
-  
-  }
-  
-  .primera {
+
+
+}
+
+.primera {
   width: 500px;
   height: 500px;
-  animation: orbit 4s linear infinite;  
-  }
-  
-  .segunda {
+  animation: orbit 4s linear infinite;
+}
+
+.segunda {
   width: 300px;
   height: 300px;
   animation: orbit 6s linear infinite;
-  }
-  
-  .tercera {
+}
+
+.tercera {
   width: 600px;
   height: 600px;
   animation: orbit 7s linear infinite;
-  }
-  
-  .cuarta {
+}
+
+.cuarta {
   width: 700px;
   height: 700px;
-  animation: orbit 4.5s linear infinite; 
-  }
-  
-  .quinta {
+  animation: orbit 4.5s linear infinite;
+}
+
+.quinta {
   width: 800px;
   height: 800px;
-  animation: orbit 6.5s linear infinite; 
-  }
-  .sexta {
+  animation: orbit 6.5s linear infinite;
+}
+
+.sexta {
   width: 900px;
   height: 900px;
-  animation: orbit 7.5s linear infinite; 
+  animation: orbit 7.5s linear infinite;
+}
+
+
+.estrella {
+  width: 20%;
+  height: 25%;
+  background-size: contain;
+  animation: change-image 0.5s infinite;
+}
+
+@keyframes change-image {
+
+  0%,
+  25% {
+    background-image: url('../img/estrella1.png');
   }
-  
 
-  .estrella{
-    width: 20%;
-    height: 25%; 
-    background-size: contain;
-    animation: change-image 0.5s infinite;  
-    }
+  25.1%,
+  50% {
+    background-image: url('../img/estrella2.png');
+  }
 
-    @keyframes change-image {
-      0%, 25% { background-image: url('../img/estrella1.png'); }
-      25.1%, 50% { background-image: url('../img/estrella2.png'); } 
-      50.1%, 75% { background-image: url('../img/estrella1.png'); } 
-      75.1%, 100% { background-image: url('../img/estrella3.png'); } 
-      }
-      
+  50.1%,
+  75% {
+    background-image: url('../img/estrella1.png');
+  }
 
-      @keyframes orbit {
-        from {
-            transform: rotate(0);
-        }
-        to {
-            transform: rotate(360deg);
-        }
-        }
+  75.1%,
+  100% {
+    background-image: url('../img/estrella3.png');
+  }
+}
+
+
+@keyframes orbit {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
