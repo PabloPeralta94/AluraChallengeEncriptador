@@ -12,12 +12,6 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  background-color: #c94a90;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .bold {
   font-weight: bold;
 }
@@ -275,4 +269,12 @@ footer {
 #menu-icon img {
   width: 24px;
   height: 24px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
